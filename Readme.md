@@ -35,3 +35,11 @@ code ~/.gitconfig
 ```
 git config --global core.editor "code --wait"
 ```
+- To add colors to git messages(red, green for successful commits).
+```
+git config --global color.ui true
+```
+- To set default branch name as main
+```
+git config --global init.defaultbranch main
+```
