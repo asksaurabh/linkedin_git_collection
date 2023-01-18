@@ -148,4 +148,16 @@ NOTE: The .git/HEAD file indicates the branch HEAD currently points to, and the 
 ```
 > git add <fileName1> <fileName2>...
 ```
+- To see the differences between files before `staging`. OR . To view the changes in the `working directory`.(differences btw working tree and staging index)
+```
+git diff
+```
+- To view the changes in the `staging area`(differences btw repository and staging tree).
+```
+git diff --staged
+
+OR
+
+git diff --cached
+```
 - 
