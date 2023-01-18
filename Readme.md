@@ -23,6 +23,11 @@ git config --global user.email "Your email"
 ```
 git config --list
 ```
+- To list only global/local configs
+```
+git config --list --global
+git config --list --local
+```
 - To look at each individual configuration e.g your name
 ```
 git config user.name
