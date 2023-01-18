@@ -126,3 +126,18 @@ git log --until=2020-09-10 -n 2
 > Output the log for all of Karen's commits labeled "refactor" during March 2019.
 git log --since=2019-03-01 --until=2019-03-31 --author="Karen" --grep="refactor"
 ```
+- To get the SHA value of the commit where HEAD pointer points to.
+```
+> cat .git/HEAD
+
+This spits out a refs address. Copy that. For eg: `ref: refs/heads/main`
+
+> cat .git/refs/heads/main 
+This will output the SHA value of the commit where HEAD points to.
+```
+```
+NOTE: The .git/HEAD file indicates the branch HEAD currently points to, and the contents of the file will contain the SHA of that branch's HEAD. If you checkout another branch, the contents of .git/refs/heads/new will not change, but the .git/HEAD contents will.
+```
+
+## 4. Get going with Git Commands
+- 
