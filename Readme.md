@@ -160,4 +160,12 @@ OR
 
 git diff --cached
 ```
-- 
+- When you `delete` the files, it also get tracked. So, you need to add after deleting to the staging area and commit. In order to delete and move that change to staging area use `git rm` :
+```
+git rm <file_to_delete.txt>
+git commit -m "file_to_delete deleted"
+``` 
+- To track `moved/renamed` file
+```
+
+```
