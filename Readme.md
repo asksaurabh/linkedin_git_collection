@@ -165,7 +165,8 @@ git diff --cached
 git rm <file_to_delete.txt>
 git commit -m "file_to_delete deleted"
 ``` 
-- To track `moved/renamed` file
+- To track `moved/renamed` file. (Renames the file and stage this change to the staging tree simultaneously)
 ```
-
+git mv initial_file_name.txt final_file_name.txt
+git commit -m "Rename a file"
 ```
