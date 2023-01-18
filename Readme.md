@@ -140,4 +140,12 @@ NOTE: The .git/HEAD file indicates the branch HEAD currently points to, and the 
 ```
 
 ## 4. Get going with Git Commands
+- To check your current status(asking you to add the changes to staging index or git repository(committing).
+```
+> git status
+```
+- To selectively add files to your staging area(meaning to track the changes)
+```
+> git add <fileName1> <fileName2>...
+```
 - 
