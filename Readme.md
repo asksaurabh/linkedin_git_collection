@@ -244,7 +244,7 @@ git checkout -- index.html
 git reset HEAD <fileName1>...<fileNameN>
 ```
 
-- To amend/edit the last commit you made. For eg: Your recent commit should also include one more edit. So, you made the edit to the file and staged it. Now :
+- To amend/edit the last commit you made. For eg: Your recent commit should also include one more edit. So, you made the `edit to the file and staged it`. Now :
 
 ```
 git commit --amend -m "Merge this commit with prev commit"
@@ -289,4 +289,33 @@ It opens up the editor to see the new message and the previous commit SHA. Save 
 git clean -f
 
 NOTE: git clean -n ,for preview of the files to be deleted.
+```
+
+## 6. Ignore files
+
+- Create `.gitignore` file in the root of your repo and put the lists of files you want to ignore. For eg: `logs/*.txt` will ignore all text files in the `logs/` directory.
+- Put all those files in `.gitignore` which is not necessary to keep track of. For eg: `DS_Store`, `*.zip`.
+- What to ignore: `compiled source code`, `packages and compressed files`, `logs and databases`, `user uploaded assets(images, PDFs, videos)`.
+- A collection of [gitignore templates](https://github.com/github/gitignore#a-collection-of-gitignore-templates).
+- To setup a global `.gitignore` file. Follow [this](https://gist.github.com/asksaurabh/0a1dbb1f2b242dbf601e44c469fab0d0#11-setup-global-gitignore-file).
+- `.gitignore` ignores the files that are untracked. To ignore files that are already tracking: Say you were tracking `db_config.txt` and now you don't want to track it anymore.
+
+```
+Step 1: git rm --cached db_config.txt
+Step 2: Open .gitignore file and write db_config.txt in it.
+Step 3: git commit -m "Stop tracking changes to db_config file"
+```
+
+- To list all the files and directories that are tracked by git.
+
+```
+git ls-tree HEAD
+```
+
+- By default, git ignores to track empty directories. To track these, a simple way is to make a invisible dot file inside empty directory. Conventionally we call this `.gitkeep`. For eg: Let's say we want to track a empty `resources` directory.
+
+```
+> mkdir resources
+> touch resources/.gitkeep
+> git add -A
 ```
