@@ -290,3 +290,32 @@ git clean -f
 
 NOTE: git clean -n ,for preview of the files to be deleted.
 ```
+
+## 6. Ignore files
+
+- Create `.gitignore` file in the root of your repo and put the lists of files you want to ignore. For eg: `logs/*.txt` will ignore all text files in the `logs/` directory.
+- Put all those files in `.gitignore` which is not necessary to keep track of. For eg: `DS_Store`, `*.zip`.
+- What to ignore: `compiled source code`, `packages and compressed files`, `logs and databases`, `user uploaded assets(images, PDFs, videos)`.
+- A collection of [gitignore templates](https://github.com/github/gitignore#a-collection-of-gitignore-templates).
+- To setup a global `.gitignore` file. Follow [this](https://gist.github.com/asksaurabh/0a1dbb1f2b242dbf601e44c469fab0d0#11-setup-global-gitignore-file).
+- `.gitignore` ignores the files that are untracked. To ignore files that are already tracking: Say you were tracking `db_config.txt` and now you don't want to track it anymore.
+
+```
+Step 1: git rm --cached db_config.txt
+Step 2: Open .gitignore file and write db_config.txt in it.
+Step 3: git commit -m "Stop tracking changes to db_config file"
+```
+
+- To list all the files and directories that are tracked by git.
+
+```
+git ls-tree HEAD
+```
+
+- By default, git ignores to track empty directories. A simple way is to make a invisible dot file inside empty directory. Conventionally we call this `.gitkeep`. For eg: Let's say we want to track a empty `resources` directory.
+
+```
+> mkdir resources
+> touch resources/.gitkeep
+> git add -A
+```
