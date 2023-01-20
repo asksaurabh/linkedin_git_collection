@@ -319,3 +319,97 @@ git ls-tree HEAD
 > touch resources/.gitkeep
 > git add -A
 ```
+
+## 7. Navigating the Commit Tree
+
+- To reference previous commits. Copy the `SHA-value`(usually 4 or more characters) and :
+
+```
+git show <SHA-VALUE>
+
+OR
+
+> If you want to reference head.
+git show HEAD
+```
+
+- To find the ancestry(parent, grandparents..) of the commit. Usage of (`^` or `~(generation number)`).
+
+```
+> For parents
+git show <SHA>^
+git show HEAD^
+git show HEAD~1
+
+> For grandparents
+git show HEAD^^
+git show HEAD~2
+```
+
+- To list the contents of a tree object ie. `"tree-ish" or SHA-Value or HEAD`.
+
+```
+git ls-tree HEAD
+
+> It lists the contents of commit that HEAD is pointing to. Use git help ls-tree for options.
+```
+
+```
+Usage:  Lists the contents of parent of HEAD
+> git ls-tree HEAD^
+```
+
+- To filter the commit log.
+
+```
+> Filter by number of commits.
+git log 3
+
+> Filter by date.
+git log --since=2022-01-01 --until=2022-01-31
+git log --until="3 days ago"
+
+> Filter by author.
+git log --author="John"
+
+> Search by commit message/regex.
+git log --grep="Initial"
+
+> Log every commit between two SHA values.
+git log SHA1..SHA2
+git log a5637bf..HEAD
+
+> Show every commit which changed a specific file. For eg: index.htm. It helps you to see only those commits which affected index.html file.
+
+git log index.html
+```
+
+- Format the commit log. (Use it for better display of metadata related to a particular commit)
+
+```
+git log -p
+
+> Shows all the previous commits with their change sets.
+```
+
+- To show the statistics with each commit.
+
+```
+git log --stat
+```
+
+- To change the format of the git log
+
+```
+git log --format=short
+
+> Available: oneline, short, medium(default), full, fuller, email, raw
+```
+
+- IMP: To show the graph of the previous commits(shows branches and all also).
+
+```
+git log --graph
+
+Also try: git log --graph --all --oneline --decorate
+```
