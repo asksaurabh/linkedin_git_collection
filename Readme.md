@@ -413,3 +413,93 @@ git log --graph
 
 Also try: git log --graph --all --oneline --decorate
 ```
+
+## 8. Branching
+
+- Be careful when you are creating a new branch, check what branch are you currently on. `Creating a branch will create branch from current branch you are on`.
+
+- To see all the existing branches. It also shows the currently checked out branch via `*`
+
+```
+git branch
+```
+
+- To create a new branch.
+
+```
+git branch <branch-name>
+```
+
+- To switch(checkout) between branches.
+
+```
+git checkout <branch-name>
+```
+
+- To create and simultaneously switch to a new branch.
+
+```
+git checkout -b <new-branch-name>
+```
+
+- How to `switch/checkout when you have uncommitted changes`:
+
+```
+1. You cannot switch if uncommitted changes in working directory conflict.
+2. You can switch if uncommitted changes in working directory could be applied without conflict.
+3. You can switch if files are not being tracked.
+```
+
+```
+How to checkout in these conditions then:
+1. Commit the changes  to the current branch and then checkout
+2. Remove the changes, checkout the file now.
+3. stash the changes.
+```
+
+- To compare two branches to see what difference they have:
+
+```
+git diff branchName1..branchName2
+```
+
+- To find out what other branches have all of their commits merged into this branch already: For eg: Suppose I'm at `shorten-title` branch and I want to see what other branches have all of their changes merged into shorten-title branch.
+
+```
+git branch --merged
+```
+
+```
+> Output:
+  lengthy-title
+  main
+* shorten-title
+
+This means all of the commits that are in main and lengthy-title branch are their in shorten-title branch.
+```
+
+- Similarly, to check what all branches commits are not merged in current branch
+
+```
+git branch --no-merged
+```
+
+- To rename the branch name (be careful to rename before you start sharing it with other people/branch).
+
+```
+> If you want to change the name of current branch:
+git branch -m <new-branch-name>
+
+> If you want to change the name of any random branch:
+git branch -m <old-branch-name> <new-branch-name>
+```
+
+- To delete a branch, first need to checkout to a branch other than you want to delete(because you can't be on a branch you are trying to delete). Now:
+
+```
+> To delete the branch which have no commits or is merged.
+git branch -d <branchName>
+
+> To delete the branch which have commits and you don't even want to merge it also.
+git branch -D <branchName>
+```
