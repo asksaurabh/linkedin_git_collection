@@ -503,3 +503,25 @@ git branch -d <branchName>
 > To delete the branch which have commits and you don't even want to merge it also.
 git branch -D <branchName>
 ```
+
+## 9. Reset Branches
+
+- Moves HEAD pointer to a specific commit. (changing the files in staging index/working driectory).
+- Three types of reset: soft, mixed and hard
+- Soft reset: Moves the HEAD pointer to a specified commit but it does not changes the staging index and the working directory. For eg: If you moved to commit A in time, and it has commit B and C above it. So, All those changes in commit B and C moves to `staging index` ready to be `committed` again.
+
+```
+git reset --soft <tree-ish>
+```
+
+- Mixed reset: Moves the HEAD pointer but it changes the staging index to match the repository. It doesn't change the working directory. This is a default choice of `git reset` if you don't specify any option. For eg: If you moved to commit A in time, and it has commit B and C above it. So, All those changes in commit B and C moves to `working directory` ready to be `staged` again.
+
+```
+git reset --mixed <tree-ish>
+```
+
+- Hard reset: Moves the HEAD pointer. It changes the staging index and the working directory to match the repository. It returns to an old stage and `discards` all the code changes. Used to permanently undo commits. Mainly used for making one branch look like another completely.
+
+```
+git reset --hard <tree-ish>
+```
