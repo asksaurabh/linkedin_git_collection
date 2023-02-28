@@ -525,3 +525,51 @@ git reset --mixed <tree-ish>
 ```
 git reset --hard <tree-ish>
 ```
+
+## 10. Merge Branches
+
+- First move to the branch where you want the merge the changes into(generally main).
+
+```
+git checkout main
+```
+
+- Now, see the differences between the current branch(say main) amd the branch you want to merge with(say test).
+
+```
+git diff main..test
+```
+
+- To merge the test branch into the main branch(currently you are here).
+
+```
+git merge <branch-name-you-want-to-merge>
+
+> Here: git merge test
+```
+
+- NOTE: ALWAYS run merges with a `clean working directory`. Things becomes complicated if you have unstaged changes in working directory while doing merges. SO, either `stash or commit the changes` in the `working directory` before running merge.
+
+- Two types of merges: Fast forward and True merge.
+- Fast forward merge is when the test branch is just an extension of main branch, hence it can easily be moved in-line with main branch. Hence, when merged no new commit to merge is made. Git just moved the commits to main branch.
+- True merge is when we have additional commits in main from the point where new branch was made to test and when you want to merge test back to main, we need to have another commit which joins the two branches together.
+
+- Conflict occurs when we have two changes in the same line in two different commits.
+- Three ways to resolve merge: abort merge, resolve the conflicts manually, use a merge tool.
+- Abort merge
+
+```
+git merge --abort
+```
+
+- To resolve a merge manually:
+- To see the differences in the current branch.
+
+```
+git diff --color-words main..<branch-you-are-merging-with>
+```
+
+- Make the changes manually, then stage the changes, then commit without a message, message shows up in editor, save and exit.
+
+- How to reduce merge conflicts?
+- Keep merging main branch into your feature branch. This is called `tracking`. We are merging changes in main to merge along the way to reduce merge conflicts.
