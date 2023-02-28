@@ -572,4 +572,4 @@ git diff --color-words main..<branch-you-are-merging-with>
 - Make the changes manually, then stage the changes, then commit without a message, message shows up in editor, save and exit.
 
 - How to reduce merge conflicts?
-- Keep merging main branch into your feature branch. This is called `tracking`. We are merging changes in main to merge along the way to reduce merge conflicts.
+- Keep merging main branch into your feature branch. This is called `tracking`. We are merging changes in feature-branch from main branch to keep feature-branch up-to-date with main to reduce merge conflicts.
