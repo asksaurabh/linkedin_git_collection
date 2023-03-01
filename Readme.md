@@ -680,3 +680,80 @@ git branch -a
 ```
 git clone <https-link> [project-name]
 ```
+
+## 13. Collaborate with a Remote
+
+- To push to a remote repository if it is already set to tracking(-u flag)
+
+```
+git push
+```
+
+- Had the remote branch set up to non tracking, then you need to specify which branch you are pushing to.
+
+```
+git push origin main
+```
+
+-To fetch changes from remote repository
+
+```
+git fetch
+```
+
+- NOTE: This fetch makes the local origin/main branch in sync with the remote main branch, but the `local main branch is still behind`.
+
+- NOTE: Fetch before you start work. Fetch before you push. Fetch before you go offline. Fetch often.
+
+- To merge in fetched changes, First see diff between local main and local reference to origin/main(which is tracking remote main).
+
+```
+git diff --color-words origin/main..main
+```
+
+- Now, standing on the local main, perform the merge
+
+```
+git merge origin/main
+```
+
+- Two step process: `git fetch(to see what comes down) + git merge`
+- To do both steps at once. Use:
+
+```
+git pull
+```
+
+- Let's say we have two remote branches called origin/test and origin/main. If someone clones repo, it gets only main as local repo. To get test as a local repo.
+
+```
+git branch test origin/test
+
+> This tells to create a local branch test based of of origin/test
+
+OR: Do it in one step
+git checkout -b test origin/test
+```
+
+- If you want to push to an updated remote branch, remember to first fetch to get all the remote changes, then merge, then push.
+
+- To delete a remote branch(eg: test)
+
+```
+> git push origin :test
+
+OR
+
+> git push origin --delete test
+```
+
+- To collaborate, first identify the problem you will work on, then fork the project, make changes and push it to your own remote fork, then raise a PR.
+
+- NOTE: Before pushing: FETCH MERGE then PUSH
+- NOTE: Before start working: FETCH MERGE then start working.
+
+- Add an alias:
+
+```
+git config --global alias.st status
+```
