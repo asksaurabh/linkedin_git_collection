@@ -633,3 +633,50 @@ git stash drop [stash@{index}]
 ```
 git stash clear
 ```
+
+## 12. Set up a Remote
+
+- Remote repos are hosted by servers over a network and allows easy collaboration. Push local repo changes to the remote.
+- origin/[branch-name] is a branch on our local machine that references the remote server branch and it always try to stay in sync with that remote branch.
+- When you fetch(pull) changes, the remote main sync up with the local origin/main branch it doesn't show changes in the local main branch. To sync local main we need to merge.
+- To check list of remotes
+
+```
+git remote
+```
+
+- To check git configs
+
+```
+cat .git/config
+```
+
+- To remove a remote(let's say origin)
+
+```
+git remove rm origin
+```
+
+- To create a new remote branch
+
+```
+git push -u origin <branch-you-want-to-push>
+```
+
+- To show remote branches
+
+```
+git branch -r
+```
+
+- To show all local/remote branches
+
+```
+git branch -a
+```
+
+- To clone a repository
+
+```
+git clone <https-link> [project-name]
+```
