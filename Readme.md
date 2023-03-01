@@ -573,3 +573,63 @@ git diff --color-words main..<branch-you-are-merging-with>
 
 - How to reduce merge conflicts?
 - Keep merging main branch into your feature branch. This is called `tracking`. We are merging changes in feature-branch from main branch to keep feature-branch up-to-date with main to reduce merge conflicts.
+- You can use `git reset --hard <tree-ish>` to undo the merge.
+
+## 11. Stash changes
+
+- It's not a part of the working directory, staging index or repository. It's a separate are of git, where we save things for later.
+- Say you have made some edits to your file in a particular branch but have not staged it yet. Now, you want to checkout to another branch. You can't do that. You either need to commit the changes or stash it.
+
+```
+git stash save "your-stash-message"
+```
+
+- Stash by default does not include untracked files, as it doesn't produce a conflict when switching branches. To stash untracked files, use:
+
+```
+--include-untracked option of git stash
+```
+
+- View stash
+
+```
+git stash list
+```
+
+- View a particular stash commit
+
+```
+git stash show stash@{index-you-want-from-list}
+```
+
+- To view the contents of a particular stash commit
+
+```
+git stash show -p stash@{0}
+```
+
+- You can view the stash anywhere. It's independent of the branch you made the stash to.
+
+- You can retrieve the stash changes at any branch you want. So, first you need to decide which branch you need to retrieve the stashed changes and to retrieve them and remove from stash:
+
+```
+git stash pop [stash@{index}]
+```
+
+- To retrieve the changes but not delete them from stash.
+
+```
+git stash apply [stash@{index}]
+```
+
+- To clear a particular commit in stash
+
+```
+git stash drop [stash@{index}]
+```
+
+- To clear the whole stash
+
+```
+git stash clear
+```
