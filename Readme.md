@@ -757,3 +757,51 @@ OR
 ```
 git config --global alias.st status
 ```
+
+## Collboration with Teams
+
+- Go to the orgs repo(eg: facebook/react) on which you want to contribute. Fork it.
+- Now you have your own copy(eg: asksaurabh/react).
+- Clone your own repo(asksaurabh/react) into your local system. This automatically sets your `origin` to be your own forked remote copy.
+- See all the remotes: `git remote -v`
+- Setup org's repo as an upstream from which you can pull recent changes.
+
+```
+git remote add upstream <ORG-GITHUB-SSH-CLONE-LINK>
+```
+
+- To get updates from upstream
+
+```
+git pull upstream master
+```
+
+- Now our individual fork doesn't have these updates. So, push these changes to our own forked copy.
+
+```
+git push origin master
+```
+
+## NOTES
+
+- Remember to work in the feature branch for doing any changes.
+
+```
+git checkout -b <New-branch-name>
+```
+
+- Add and commit the changes in this feature branch.
+- Push this feature branch upto the github.
+
+```
+git push -u origin <New-branch-name>
+```
+
+- Now, to create a PR, go to your own forked GitHub repo `asksaurabh/react`, go to the corresponding feature-branch 'New-branch-name' and create a PR. Click on Compare and pull request.
+- See the relationship created: Merge into facebook/master from asksaurabh/New-feature-branch-name.
+- Add comments and create the PR.
+- Once merged, delete the new feature branch locally and its remote reference.
+
+```
+git branch -d <New-Branch-Name>
+```
